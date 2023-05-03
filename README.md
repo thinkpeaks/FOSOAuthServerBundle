@@ -1,5 +1,9 @@
-FOSOAuthServerBundle
-====================
+FOSOAuthServerBundle FORKED
+===========================
+
+**WARNING:** This is a fork of the original FOSOAuthServerBundle v1.6.2. 
+
+
 
 [![Build Status](https://secure.travis-ci.org/FriendsOfSymfony/FOSOAuthServerBundle.png)](http://travis-ci.org/FriendsOfSymfony/FOSOAuthServerBundle)
 
