@@ -23,15 +23,8 @@ use Symfony\Component\HttpKernel\Kernel;
 
 class FOSOAuthServerBundle extends Bundle
 {
-    /**
-     * @example '2.1.0'
-     * @var string
-     */
-    private $kernelVersion;
-
     public function __construct()
     {
-        $this->kernelVersion = Kernel::VERSION;
         $this->extension = new FOSOAuthServerExtension();
     }
 
@@ -39,11 +32,9 @@ class FOSOAuthServerBundle extends Bundle
     {
         parent::build($container);
 
-        if (version_compare($this->kernelVersion, '2.1', '>=')) {
-            /** @var SecurityExtension $extension */
-            $extension = $container->getExtension('security');
-            $extension->addSecurityListenerFactory(new OAuthFactory());
-        }
+        /** @var SecurityExtension $extension */
+        $extension = $container->getExtension('security');
+        $extension->addAuthenticatorFactory(new OAuthFactory());
 
         $container->addCompilerPass(new GrantExtensionsCompilerPass());
         $container->addCompilerPass(new TokenStorageCompilerPass());
